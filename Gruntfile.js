@@ -337,7 +337,7 @@ module.exports = function (grunt) {
         buildcontrol: {
           dist: {
             options: {
-              remote: 'git@github.com:robwierzbowski/grunt-build-control.git',
+              remote: 'git@github.com:attacbe/banner_generator.git',
               branch: 'gh-pages',
               commit: true,
               push: true
