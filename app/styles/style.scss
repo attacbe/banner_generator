@@ -1,0 +1,70 @@
+$icon-font-path: "../styles/fonts/"; // Change the path to the fonts
+@import "bootstrap-sass/lib/bootstrap";
+
+/* Put your CSS here */
+html, body {
+    margin: 30px 0;
+}
+
+.banner {
+  width: 600px;
+  background: red;
+  box-sizing: border-box;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.banner-facebook {
+  width: 700px;
+}
+
+
+.banner--date,
+.banner--footer,
+.banner--title,
+.banner--speakers {
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.banner--title {
+  padding-top: 0;
+  padding-bottom: 0;
+  text-transform: uppercase;
+  font-weight: 100;
+  width: 100%;
+  text-indent: -0.12em;
+}
+
+.banner--speakers {
+  font-size: 16px;
+  color: #fff;
+}
+
+.formation {
+  background: #9f262c;
+  .banner--title {
+    color: #fff;
+  }
+  .banner--date {
+    color: #f6aaa9;
+  }
+  .banner--footer {
+    background: #7c161b;
+    color: #ddd720;
+  }
+}
+
+.actu {
+  background: #34660c;
+  .banner--title {
+    color: #fff;
+  }
+  .banner--date {
+    color: #96bd74;
+  }
+  .banner--footer {
+    background: #2b5608;
+    color: #bece1c;
+  }
+}

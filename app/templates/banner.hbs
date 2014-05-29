@@ -1,0 +1,66 @@
+<div class="row">
+  <div class="col-xs-4">
+    <div class="page-header">
+      <h1 id='title'>Bannière Attac</h1>
+    </div>
+    <div class="form-group">
+      <label>Date</label>
+      {{input valueBinding='controller.date' class='form-control'}}
+    </div>
+    <div class="form-group">
+      <label>Titre</label>
+      {{input valueBinding='controller.title' class='form-control'}}
+    </div>
+    <div class="form-group">
+      <label>Type</label>
+      {{view Ember.Select content=controller.bannerTypes valueBinding='controller.bannerType' class='form-control'}}
+    </div>
+    <div class="form-group">
+      <label>Taille du titre Facebook</label>
+      <div class="clearfix"></div>
+      {{controller.fbTitleSize}}
+      {{view AttacBannerGenerator2.RangeInput valueBinding='controller.fbTitleSize'}}
+    </div>
+    <div class="form-group">
+      <label>Taille du titre Newsletter</label>
+      <div class="clearfix"></div>
+      {{controller.newsletterTitleSize}}
+      {{view AttacBannerGenerator2.RangeInput valueBinding='controller.newsletterTitleSize'}}
+    </div>
+    <div class="form-group">
+      <label>Intervenant</label>
+      {{textarea valueBinding='controller.speakers' class='form-control'}}
+    </div>
+  </div>
+  <div class="col-xs-8">
+    <div class="page-header">
+      <h2>
+        Bannière facebook
+        <a class='download-link download-facebook btn btn-primary'>Download</a>
+      </h2>
+    </div>
+    <div {{bind-attr class=":banner :banner-facebook bannerType"}}>
+      <div class="banner--date">{{controller.date}}</div>
+      <div class="banner--title" {{bind-attr style='controller.facebookComputedTitleSize'}}>{{controller.title}}</div>
+      <div class="banner--speakers">{{{controller.speakers}}}</div>
+      <div class="banner--footer">
+        19 heures 30 à L’Horloge du Sud 141, rue du Trône • 1050 Bruxelles
+      </div>
+    </div>
+
+    <div class="page-header">
+      <h2>
+        Bannière Newsletter
+        <a class='download-link download-newsletter btn btn-primary'>Download</a>
+      </h2>
+    </div>
+    <div {{bind-attr class=":banner :banner-newsletter bannerType"}}>
+      <div class="banner--date">{{controller.date}}</div>
+      <div class="banner--title" {{bind-attr style='controller.newsletterComputedTitleSize'}}>{{controller.title}}</div>
+      <div class="banner--speakers">{{{controller.speakers}}}</div>
+      <div class="banner--footer">
+        19 heures 30 à L’Horloge du Sud 141, rue du Trône • 1050 Bruxelles
+      </div>
+    </div>
+  </div>
+</div>
