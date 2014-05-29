@@ -262,13 +262,13 @@ module.exports = function (grunt) {
         copy: {
             fonts: {
                 files: [
-                    { 
+                    {
                         expand: true,
                         flatten: true,
                         filter: 'isFile',
                         cwd: '<%= yeoman.app %>/bower_components/',
                         dest: '<%= yeoman.app %>/styles/fonts/',
-                        src: [ 
+                        src: [
                             'bootstrap-sass/dist/fonts/**', // Bootstrap
                             'font-awesome/fonts/**' // Font-Awesome
                         ]
@@ -332,7 +332,18 @@ module.exports = function (grunt) {
                 src: '<%= yeoman.app %>/scripts/app.js',
                 dest: '.tmp/scripts/combined-scripts.js'
             }
-        }
+        },
+
+        buildcontrol: {
+          dist: {
+            options: {
+              remote: 'git@github.com:robwierzbowski/grunt-build-control.git',
+              branch: 'gh-pages',
+              commit: true,
+              push: true
+            }
+          }
+        },
     });
 
     grunt.registerTask('server', function (target) {
@@ -378,6 +389,13 @@ module.exports = function (grunt) {
         'copy',
         'rev',
         'usemin'
+    ]);
+
+    grunt.registerTask('deploy', [
+        'check',
+        'test',
+        'build',
+        'buildcontrol'
     ]);
 
     grunt.registerTask('default', [
